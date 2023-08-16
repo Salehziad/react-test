@@ -33,6 +33,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: build # The folder the action should deploy.
+          publish_dir: ./build
         env:
           ACCESS_TOKEN: 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
 # name: Build & deploy
