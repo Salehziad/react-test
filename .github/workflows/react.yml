@@ -48,7 +48,7 @@ jobs:
           path: ./build
 
       - name: Deploying to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: actions/checkout@v2
         with:
-          github_token: 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
-          publish_dir: ./build
+          lfs: true
+          token: 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
