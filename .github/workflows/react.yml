@@ -92,5 +92,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: build
-          github_token: ${{ secrets.DO_API_TOKEN }}
+          github_token: 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
           publish_dir: ./build
