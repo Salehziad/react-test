@@ -91,5 +91,5 @@ jobs:
       - name: Deploying to gh-pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: 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
+          github_token: ${{ secrets.DO_API_TOKEN }}
           publish_dir: ./build
