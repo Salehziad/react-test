@@ -91,6 +91,6 @@ jobs:
       - name: Deploying to gh-pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          folder: build
           github_token: ${{ secrets.DO_API_TOKEN }}
           publish_dir: ./build
-          folder: build
