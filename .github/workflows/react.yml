@@ -32,3 +32,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: build # The folder the action should deploy.
+        env:
+          ACCESS_TOKEN: ${{ secrets.DO_API_TOKEN }}
