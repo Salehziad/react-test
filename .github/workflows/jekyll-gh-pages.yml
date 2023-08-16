@@ -1,3 +1,39 @@
+name: Deploy React App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        
+      - name: Set Up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          
+      - name: Install Dependencies
+        run: npm install
+      
+      - name: Build React App
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.DO_API_TOKEN }}
+          publish_dir: ./build
+
 # # Sample workflow for building and deploying a Jekyll site to GitHub Pages
 # name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 
@@ -56,44 +92,44 @@
 #         uses: actions/deploy-pages@v2
 
 
-name: Deploy React App to GitHub Pages
+# name: Deploy React App to GitHub Pages
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+# permissions:
+#   contents: read
+#   pages: write
+#   id-token: write
 
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
     
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v2
         
-      - name: Set Up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
+#       - name: Set Up Node.js
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: '14'
           
-      - name: Install Dependencies
-        run: npm install
+#       - name: Install Dependencies
+#         run: npm install
       
-      - name: Build React App
-        run: npm run build
+#       - name: Build React App
+#         run: npm run build
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
-        with:
-          github_token: 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
-          publish_dir: ./build
-        env:
-          ACCESS_TOKEN: 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
+#       - name: Upload artifact
+#         uses: actions/upload-pages-artifact@v2
+
+#       - name: Deploy to GitHub Pages
+#         uses: actions/deploy-pages@v2
+#         with:
+#           github_token: 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
+#           publish_dir: ./build
+#         env:
+#           ACCESS_TOKEN: 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
